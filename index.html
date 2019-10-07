@@ -1,61 +1,138 @@
 <!DOCTYPE html>
-<html lang='en'>
-
+<html lang="en">
 <head>
-    <meta charset='UTF-8'>
-    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l"
-        crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c"
-        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Oxygen&display=swap" rel="stylesheet">
 
 </head>
 
 <style>
+    body{
+        margin: 0px;
+    }
 
-.container {
-    margin: 0;
-    height: calc(100vh - 20px);
-    width: calc(100vw - 20px);
-    border: 10px solid red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    html {
+        font-family: 'Oxygen', sans-serif;
+    }
 
-}
+    .navbar{
+        background-color: #415068;
+    }
 
-.container > .img_blocks {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
+    .navbar div{
+        display: none;
+    }
 
-.img_blocks img{
-    margin: 5px;
-    height: 120px;
-    width: auto;
-}
+    .navbar .toggle,
+    .navbar .brand{
+        display: inline-block;
+    }
+
+    .navbar .link {
+        display: block;
+        text-align: center;
+        padding: 1em;
+        text-decoration: none;
+        background: #223047;
+        color:white;
+    }
+
+    .navbar .link:hover,
+    .navbar .link:active{
+        color: #223047;
+        background: white;
+    }
+
+    .navbar .brand{
+        width: 10em;
+        text-align: center;
+        padding: 1em;
+        color: white;
+    }
+
+    .navbar a{
+        text-decoration: none;
+    }
+
+    .navbar .toggle{
+        padding: 1em;
+        color: black;
+    }
+
+    @media (min-width: 48em) { /* fullscreen */
+        .navbar {
+            display: flex;
+        }
+
+        .navbar div{
+            display: flex;
+        }
+
+        .navbar .left,
+        .navbar .right{
+            display: flex;
+            flex: 1;
+        }
+
+        .navbar .link{
+            width: auto;
+        }
+
+        .navbar .right{
+            justify-content: flex-end;
+        }
+
+        .navbar .toggle {
+            display: none; /* para este tamaño que no se vea */
+        }
+    }
+
+    @media (max-width: 48em) {
+        .navbar.active .toggle{
+            background: #223047;
+            color: white;
+        }
+
+        .navbar .brand {
+            text-align: left;
+        }
+
+        .navbar.active div{
+            display: block;
+        }
+    }
 
 </style>
-
 <body>
+    <div class="navbar">
+        <a href="#" class="toggle" id="NavHamburger">
+                <i class="fas fa-bars"></i>
+        </a>
+        <a href="#" class="brand">My name</a>
 
-    <div class="container">
-        <div class="img_blocks">
-            <img src="https://source.unsplash.com/random/100x100" alt="">
-            <img src="https://source.unsplash.com/random/100x100" alt="">
-            <img src="https://source.unsplash.com/random/100x100" alt="">
-            <img src="https://source.unsplash.com/random/100x100" alt="">
-            <img src="https://source.unsplash.com/random/100x100" alt="">
-            <img src="https://source.unsplash.com/random/100x100" alt="">
-            <img src="https://source.unsplash.com/random/100x100" alt="">
-            <img src="https://source.unsplash.com/random/100x100" alt="">
+        <div class="left">
+            <a href="#" class="link">Link 1</a>
+            <a href="#" class="link">Link 2</a>
         </div>
+        <div class="right">
+            <a href="#" class="link">Link 3</a>
+        </div>
+
     </div>
 
 </body>
 
+<script>
+
+    const NavHamburger = document.querySelector('#NavHamburger');
+    NavHamburger.addEventListener('click', (e) => {
+        NavHamburger.parentElement.classList.toggle('active');
+    })
+
+</script>
 </html>
